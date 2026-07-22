@@ -1,0 +1,380 @@
+/* --------------------------------------------------
+   ESP32 Wi-Fi Countdown Timer
+   Version 1.0
+--------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:#0F172A;
+
+    color:#F8FAFC;
+
+    padding:30px;
+
+    display:flex;
+
+    justify-content:center;
+
+    min-height:100vh;
+
+}
+
+.container{
+
+    width:100%;
+
+    max-width:750px;
+
+}
+
+/* ---------- Cards ---------- */
+
+.card{
+
+    background:#1E293B;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.30);
+
+}
+
+.header-card{
+
+    text-align:center;
+
+}
+
+.header-card h1{
+
+    color:#3B82F6;
+
+    font-size:32px;
+
+    margin-bottom:8px;
+
+    font-weight:700;
+
+}
+
+.header-card p{
+
+    color:#94A3B8;
+
+}
+
+/* ---------- Timer ---------- */
+
+#timer{
+
+    font-family:'DS-Digital',monospace;
+
+    font-size:88px;
+
+    color:#22C55E;
+
+    text-align:center;
+
+    letter-spacing:5px;
+
+    text-shadow:
+        0 0 8px rgba(34,197,94,.7),
+        0 0 20px rgba(34,197,94,.4);
+
+}
+
+/* ---------- Section Titles ---------- */
+
+h2{
+
+    margin-bottom:18px;
+
+    color:#CBD5E1;
+
+}
+
+/* ---------- Time Input ---------- */
+
+.time-input{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.time-input div{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.time-input input{
+
+    width:90px;
+
+    height:70px;
+
+    background:#334155;
+
+    border:none;
+
+    border-radius:12px;
+
+    color:white;
+
+    text-align:center;
+
+    font-size:32px;
+
+    outline:none;
+
+    transition:.25s;
+
+}
+
+.time-input input:focus{
+
+    box-shadow:0 0 10px #3B82F6;
+
+}
+
+.time-input span{
+
+    font-size:40px;
+
+    font-weight:bold;
+
+}
+
+small{
+
+    margin-top:8px;
+
+    color:#94A3B8;
+
+    letter-spacing:2px;
+
+}
+
+/* ---------- Brightness ---------- */
+
+#brightness{
+
+    width:100%;
+
+    cursor:pointer;
+
+}
+
+#brightnessValue{
+
+    margin-top:12px;
+
+    text-align:center;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#22C55E;
+
+}
+
+/* ---------- Buttons ---------- */
+
+button{
+
+    border:none;
+
+    cursor:pointer;
+
+    border-radius:12px;
+
+    padding:18px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.start{
+
+    width:100%;
+
+    background:#22C55E;
+
+    color:white;
+
+    margin-bottom:15px;
+
+}
+
+.row{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:12px;
+
+}
+
+.pause{
+
+    background:#F59E0B;
+
+    color:white;
+
+}
+
+.resume{
+
+    background:#3B82F6;
+
+    color:white;
+
+}
+
+.reset{
+
+    background:#EF4444;
+
+    color:white;
+
+}
+
+/* ---------- Status ---------- */
+
+.status{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:10px 0;
+
+}
+
+.badge{
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+}
+
+.ready{
+
+    background:#22C55E;
+
+    color:white;
+
+}
+
+.running{
+
+    background:#3B82F6;
+
+    color:white;
+
+}
+
+.paused{
+
+    background:#F59E0B;
+
+    color:white;
+
+}
+
+.finished{
+
+    background:#EF4444;
+
+    color:white;
+
+}
+
+hr{
+
+    border:none;
+
+    border-top:1px solid #334155;
+
+}
+
+/* ---------- Mobile ---------- */
+
+@media(max-width:700px){
+
+    #timer{
+
+        font-size:56px;
+
+    }
+
+    .time-input{
+
+        flex-direction:column;
+
+    }
+
+    .time-input span{
+
+        display:none;
+
+    }
+
+    .time-input input{
+
+        width:120px;
+
+    }
+
+    .row{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

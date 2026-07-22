@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ESP32 Countdown Timer</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Digital Clock Font -->
+    <link href="https://fonts.cdnfonts.com/css/ds-digital" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+
+    <div class="card header-card">
+
+        <h1>COUNTDOWN TIMER</h1>
+
+        <p>ESP32 Wi-Fi Controller</p>
+
+    </div>
+
+    <!-- Timer -->
+
+    <div class="card">
+
+        <div id="timer">
+
+            00:00:00
+
+        </div>
+
+    </div>
+
+    <!-- Time Input -->
+
+    <div class="card">
+
+        <h2>Set Countdown</h2>
+
+        <div class="time-input">
+
+            <div>
+
+                <input type="number" id="hours" min="0" max="99" value="00">
+
+                <small>HH</small>
+
+            </div>
+
+            <span>:</span>
+
+            <div>
+
+                <input type="number" id="minutes" min="0" max="59" value="00">
+
+                <small>MM</small>
+
+            </div>
+
+            <span>:</span>
+
+            <div>
+
+                <input type="number" id="seconds" min="0" max="59" value="00">
+
+                <small>SS</small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Brightness -->
+
+    <div class="card">
+
+        <h2>Brightness</h2>
+
+        <input type="range"
+
+               id="brightness"
+
+               min="0"
+
+               max="100"
+
+               value="80">
+
+        <p id="brightnessValue">
+
+            80%
+
+        </p>
+
+    </div>
+
+    <!-- Controls -->
+
+    <div class="card">
+
+        <button id="startBtn" class="start">
+
+            ▶ START
+
+        </button>
+
+        <div class="row">
+
+            <button id="pauseBtn" class="pause">
+
+                ⏸ PAUSE
+
+            </button>
+
+            <button id="resumeBtn" class="resume">
+
+                ▶ RESUME
+
+            </button>
+
+            <button id="resetBtn" class="reset">
+
+                ⟳ RESET
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Status -->
+
+    <div class="card">
+
+        <div class="status">
+
+            <span>Status</span>
+
+            <span id="statusText" class="badge ready">
+
+                READY
+
+            </span>
+
+        </div>
+
+        <hr>
+
+        <div class="status">
+
+            <span>Last Saved</span>
+
+            <span id="savedValue">
+
+                00:00:00
+
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
